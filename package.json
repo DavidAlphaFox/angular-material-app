@@ -56,10 +56,12 @@
     "ngx-perfect-scrollbar": "^6.2.0",
     "ngx-quill": "^3.0.0",
     "normalize.css": "^8.0.0",
-    "rxjs": "^6.0.0",
     "screenfull": "^3.3.2",
-    "zone.js": "^0.8.26"
-  },
+    "zone.js": "^0.8.26",	
+    "rxjs": "^6.2.1",
+    "rxjs-compat": "^6.2.1"
+
+	 },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.6.0",
     "@angular/cli": "~6.0.0",
