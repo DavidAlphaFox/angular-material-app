@@ -31,16 +31,16 @@ export class NavCollapseComponent implements OnInit {
     );
 
     this.service.onNavigationCollapseToggled.subscribe(
-      (clickedItem) => {
+      (clickedItem) => { //只有选中对象的时候才触发
         if (clickedItem && clickedItem.children) {
           if (this.isChildrenOf(this.item, clickedItem)) {
-            return;
+            return; 
           }
 
           if (this.isUrlInChildren(this.item, this.router.url)) {
             return;
           }
-
+          //选中的项目是自己的子菜单就直接结束，否则剩下的情况自己要收起来
           if (this.item !== clickedItem) {
             this.collapse();
           }
@@ -64,7 +64,7 @@ export class NavCollapseComponent implements OnInit {
     this.service.onNavigationCollapseToggled.emit(this.item);
     this.service.onNavigationCollapseToggle.emit();
   }
-
+//菜单展开
   expand() {
     if (this.isOpen) {
       return;

@@ -32,14 +32,14 @@ $height__main-toolbar: 64px;
 .sidenav-container {
   height: 100%
 }
-
+/*主工作区域的大小，默认是可以纵向滚动，横向隐藏，相对定位*/
 .main-container {
   overflow-y: auto;
   overflow-x: hidden;
   height: calc(100% - #{$height__main-toolbar});
   position: relative;
 }
-
+/* 固定大小布局模式，限定宽度为1200像素 */
 .boxed {
   width: 1200px;
   height: 100%;

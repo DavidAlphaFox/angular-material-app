@@ -11,7 +11,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
   navigationModel: any[];
   navigationModelChangeSubscription: Subscription;
 
-  constructor(private service: NavigationService) {
+  constructor(private service: NavigationService) {// 当菜单发生变化了，直接更新菜单
     this.navigationModelChangeSubscription = this.service.onNavigationModelChange.subscribe(
       navigation => {
         this.navigationModel = navigation;

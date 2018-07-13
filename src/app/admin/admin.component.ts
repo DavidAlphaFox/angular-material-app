@@ -26,7 +26,7 @@ export class AdminComponent implements OnInit {
   get media$(): Observable<MediaChange> {
     return this._media$.asObservable();
   }
-
+  // 通过监听flex-layout的媒体变化来进行自适应调整
   constructor(media: ObservableMedia, private config: ConfigService) {
     media
       .asObservable()
@@ -63,10 +63,11 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {
     this._mediaSubscription = this.media$.subscribe((change: MediaChange) => {
-      let isMobile = change.mqAlias === 'xs' || change.mqAlias === 'sm';
-
-      this.sidenavMode = isMobile ? 'over' : 'side';
-      this.sidenavOpen = !isMobile;
+      let isMobile = change.mqAlias === 'xs' || change.mqAlias === 'sm'; //sm和xs被认为是移动模式
+      // push是将内容区域推倒一边并添加遮罩，over是不推内容区域的添加遮罩，side是内容和菜单并存
+      this.sidenavMode = "over"; //isMobile ? 'over' : 'side';
+      //this.sidenavOpen = !isMobile;
+      this.sidenavOpen = false;
     });
 
     setTimeout(() => {
@@ -79,6 +80,6 @@ export class AdminComponent implements OnInit {
    * @param scrollContainer {Object} 容器dom
    */
   onActivate(event, scrollContainer) {
-    scrollContainer.scrollTop = 0;
+    scrollContainer.scrollTop = 0; //每次激活自动移动到最顶
   }
 }

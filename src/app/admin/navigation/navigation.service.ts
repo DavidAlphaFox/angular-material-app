@@ -10,8 +10,8 @@ export class NavigationService {
   navigationModel: NavigationModel;
 
   constructor() {
-    this.navigationModel = new NavigationModel();
-    this.onNavigationModelChange.next(this.navigationModel.model);
+    this.navigationModel = new NavigationModel(); //创建新的navbar菜单
+    this.onNavigationModelChange.next(this.navigationModel.model);//触发变化
   }
 
   getNavigationModel() {
